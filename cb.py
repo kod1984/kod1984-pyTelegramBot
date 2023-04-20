@@ -95,7 +95,7 @@ async def start(message: types.Message):
 
 
 @dp.message_handler(commands=['updatenews'])
-async def start(message: types.Message):
+async def updatenews(message: types.Message):
     if (message.chat.type == 'private' and NotElInArr(admins,message.from_user.id) == False):
         text=message.text[12:]
         if text!="":
@@ -108,13 +108,13 @@ async def start(message: types.Message):
             await message.reply("Новость не может быть пустой. Пример команды: \n/updatenews Какая-то новость.")
 
 @dp.message_handler(commands=['shownews'])
-async def start(message: types.Message):
+async def shownews(message: types.Message):
     if (message.chat.type == 'private' and NotElInArr(admins,message.from_user.id) == False):
         await bot.send_message(message.from_user.id,news)
 
 
 @dp.message_handler(commands=['clearApplicants'])
-async def start(message: types.Message):
+async def clearApplicants(message: types.Message):
     if (message.chat.type == 'private' and NotElInArr(admins,message.from_user.id) == False):
         clearApplicants()
         await bot.send_message(message.from_user.id,"Список пуст.")
@@ -122,7 +122,7 @@ async def start(message: types.Message):
 
 
 @dp.message_handler(commands=['showApplicants'])
-async def start(message: types.Message):
+async def showApplicants(message: types.Message):
     if (message.chat.type == 'private' and NotElInArr(admins,message.from_user.id) == False):
         rep=""
         for applicant in applicantNew:
@@ -130,7 +130,7 @@ async def start(message: types.Message):
         await bot.send_message(message.from_user.id,rep)
 
 @dp.message_handler(commands=['viewgroups'])
-async def start(message: types.Message):
+async def viewgroups(message: types.Message):
     if (message.chat.type == 'private' and NotElInArr(admins,message.from_user.id) == False):
         rep=""
         for group in lines:
